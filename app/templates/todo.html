@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App With Flask</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Style file -->
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">Todo App </h1>
+    
+        <form class="add-form" action="{{url_for('todo_create')}}" method="post">
+            <input class="add-input" type="text" name="todo" required>
+            <button class="add-button" type="submit">Add</button>
+        </form>
+    
+         <div class="todo-container">
+            {# Created a variable #}
+            {% set todo_index = request.args.get('todo_id') %}
+    
+            {% for index, todo in todos %}
+            {% if todo_index and todo_index == index|string %}
+                <div class="todo-item td2">
+                    <form class="edit-form" action="{{ url_for('todo_update', index=index) }}" method="post">
+                        <p class="todo-index">{{ index + 1 }}.</p>
+                        <input class="edit-input" type="text" autofocus value="{{todo}}" name="task">
+                        <a class="cancel-link" href="{{url_for('todo_page')}}"><i class="fas fa-close red bt"></i></a>
+                        <button class="save-button" type="submit"><i class="fa-solid fa-turn-up green bt"></i></button>
+                    </form>
+                </div>
+            {% else %}
+                <div class="todo-item">
+                    <p class="todo-info">{{ index + 1 }}. {{ todo }}</p>
+                    <a class="delete-link" href="{{url_for('todo_delete', index=index)}}" ><i class="fas fa-trash-alt red bt"></i></a>
+                    <a class="edit-link" href="/todo?todo_id={{ index }}"><i class="fas fa-edit green bt"></i></a>
+                </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</body>
+
+</html>

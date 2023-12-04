@@ -1,0 +1,111 @@
+        /* Styles for the container */
+   
+    body{
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
+    }
+   
+   .container {
+       font-family: 'Lato', sans-serif;
+       font-family: 'Shadows Into Light', cursive;
+       text-align: center;
+       padding: 20px 0px;
+       background: #83C7C2;
+       border: 1px #f5f5f5 solid;
+       width: 50rem;
+       border-radius: 2rem;
+       box-shadow: inset;
+   }
+   
+   /* Title style */
+   .title {
+       font-size: 4rem;
+       margin-bottom: 20px;
+       color: #FFE189;
+       margin-top: 1rem;
+   }
+   
+   /* Styles for the form */
+   .add-form {
+       margin-bottom: 20px;
+   }
+   
+   .add-input {
+       padding: 1rem 4rem;
+       border: none;
+       border-radius: 4px;
+       outline: none;
+   }
+   
+   .add-button {
+       padding: 6px 12px;
+       background-color: #FFE189;
+       color: #fff;
+       border: none;
+       border-radius: 4px;
+       cursor: pointer;
+   }
+   
+   .add-button:hover {
+       background-color: #FFE149;
+   }
+   
+   /* Styles for the todo items */
+   .todo-container {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+   }
+   
+   .todo-item{
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       width: 60%;
+       padding: 2px 4px;
+       margin: 10px 0;
+       border-bottom: 1px solid #fff;
+       border-radius: 6px;
+   }
+   
+   .td2 a{
+       margin-left: 2.4rem;
+       margin-right: 12rem;
+   }
+   
+   .edit-form {
+       display: flex;
+       align-items: center;
+   }
+   
+   .edit-input {
+       flex: 2;
+       padding: 6px 10px;
+       border: none;
+       border-radius: 4px;
+       margin-left: 1rem;
+   }
+   
+   .edit-input:focus{
+       outline: none;
+       border: none;
+   }
+   
+   .bt{
+       color: #ccc;
+   }
+   
+   .red:hover{
+       color: red;
+   }
+   
+   .green:hover{
+       color: green;
+   }
+   
+   .save-button{
+       border: none;
+       background-color: transparent;
+   }
